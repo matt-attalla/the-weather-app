@@ -33,7 +33,7 @@ export default {
   data() {
      return {
        //openweathermap api key and url
-       api_key: '620cb8cc343201300b251cb1dcb52d5e',
+       api_key: '4130d94ef2d920937f89f891b748ac17',
        url_base: 'https://api.openweathermap.org/data/2.5/',
        //location infor and weather infor
        inputLocation: '',
