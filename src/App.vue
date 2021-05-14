@@ -21,13 +21,14 @@
           </div>
         </div>
       </div>
+      <weather-tabs></weather-tabs>
     </main>
   </div>
 </template>
 
 <script>
 // import indexPage from './components/indexPage.vue'
-
+import weatherTabs from '@/components/weatherTabs.vue'
 export default {
   name: 'App',
   data() {
@@ -39,6 +40,9 @@ export default {
        inputLocation: '',
        weather:{}
      }
+   },
+   components:{
+      weatherTabs
    },
    methods:{
      //event listener
