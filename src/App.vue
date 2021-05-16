@@ -34,7 +34,7 @@ export default {
   data() {
      return {
        //openweathermap api key and url
-       api_key: '4130d94ef2d920937f89f891b748ac17',
+       api_key: process.env.VUE_APP_CURRENT_WEATHER_API_KEY,
        url_base: 'https://api.openweathermap.org/data/2.5/',
        //location infor and weather infor
        inputLocation: '',
