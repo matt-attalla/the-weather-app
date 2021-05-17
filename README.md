@@ -15,4 +15,4 @@ Comp 484 Final Project that displays the current and history of the weather by c
 
 6. Run the project with `yarn serve`
 
-7. Click to view the [The Weather App](http://localhost:8080/) 
+7. [Live Demo](https://comp484-the-weather-app.herokuapp.com/) 
