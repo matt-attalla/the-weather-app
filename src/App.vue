@@ -4,13 +4,13 @@
       <div class="search-box">
         <!-- used keyup here, where accept any keypress event -->
         <!-- the @keypress doesn't work -->
-          <input type="text" class="search-bar" placeholder="input location" v-model="inputLocation" v-on:keyup="findweath" >
+          <input type="text" class="search-bar" placeholder="Look up weather for: City, State, or Country" v-model="inputLocation" v-on:keyup="findweath" >
           <button v-on:click="toggleUnits" class="unit-toggle">&#8457;/&#8451;</button>
       </div>
       <div class="weatherwrap" v-if="Object.keys(current_weather).length !== 0">
         <div class="locationbox">
           <div class="location">
-            {{current_weather.name}},{{current_weather.sys.country}}
+            {{current_weather.name}}
           </div>
         </div>
         <div class="weatherbox">
@@ -18,7 +18,7 @@
           <img v-bind:src="`http://openweathermap.org/img/wn/${current_weather.weather[0].icon}.png`" />
         </div>
           <div class="temp">
-              {{Math.round(current_weather.main.temp)}} {{ weatherInFahrenheit ?  "&#8457;" : "&#8451;" }}
+              <b>{{Math.round(current_weather.main.temp)}} {{ weatherInFahrenheit ?  "&#8457;" : "&#8451;" }}</b>
             <p> Max: {{Math.round(current_weather.main.temp_max)}} {{ weatherInFahrenheit ?  "&#8457;" : "&#8451;" }} </p> 
             <p> Min: {{Math.round(current_weather.main.temp_min)}} {{ weatherInFahrenheit ?  "&#8457;" : "&#8451;" }}</p> 
           </div>
