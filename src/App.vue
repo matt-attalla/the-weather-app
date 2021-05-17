@@ -161,7 +161,10 @@ main{
 }
 
 .weatherwrap {
-  margin: 50px 0; 
+  padding-top: 20px; 
+  padding-bottom: 20px; 
+  background: lightblue;
+  /* margin: 50px 0;  */
   text-align: center;
 }
 .search-box {
@@ -180,9 +183,11 @@ main{
 }
 
 .locationbox .location{
+  background: lightblue;
   font-size: 64px;
 }
 .weatherbox .temp{
+  background: lightblue;
   font-size: 32px;
   padding-top: 5px;
   padding-left: 25px;
