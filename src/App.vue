@@ -5,22 +5,22 @@
         <!-- used keyup here, where accept any keypress event -->
         <!-- the @keypress doesn't work -->
           <input type="text" class="search-bar" placeholder="input location" v-model="inputLocation" v-on:keyup="findweath" >
+          <button v-on:click="toggleUnits" class="unit-toggle">&#8457;/&#8451;</button>
       </div>
-      <div class="weatherwrap" v-if="typeof current_weather.main != 'undefined'">
+      <div class="weatherwrap" v-if="Object.keys(current_weather).length !== 0">
         <div class="locationbox">
           <div class="location">
             {{current_weather.name}},{{current_weather.sys.country}}
           </div>
         </div>
         <div class="weatherbox">
+        <div>
+          <img v-bind:src="`http://openweathermap.org/img/wn/${current_weather.weather[0].icon}.png`" />
+        </div>
           <div class="temp">
-            {{current_weather.main.temp}} &#8451;
-            <h5> Current temperature:  {{current_weather.main.temp}} &#8451; </h5>  
-            <h5> Today's max:  {{current_weather.main.temp_max}} &#8451; </h5> 
-            <h5> Today's min:  {{current_weather.main.temp_min}} &#8451; </h5> 
-          </div>
-          <div class="weatherbar">
-            <img v-bind:src="`http://openweathermap.org/img/wn/${current_weather.weather[0].icon}.png`" />
+              {{Math.round(current_weather.main.temp)}} {{ weatherInFahrenheit ?  "&#8457;" : "&#8451;" }}
+            <p> Max: {{Math.round(current_weather.main.temp_max)}} {{ weatherInFahrenheit ?  "&#8457;" : "&#8451;" }} </p> 
+            <p> Min: {{Math.round(current_weather.main.temp_min)}} {{ weatherInFahrenheit ?  "&#8457;" : "&#8451;" }}</p> 
           </div>
         </div>
       </div>
@@ -53,7 +53,8 @@ export default {
        inputLocation: '',
        current_weather:{},
        forecast_weather:{},
-       history_weather:{}
+       history_weather:{},
+       weatherInFahrenheit: true
      }
    },
    components:{
@@ -65,7 +66,7 @@ export default {
        //if the Enter key is pressed then acces the apis
        if(e.key == "Enter"){
           //fetch to return the current weather data
-          fetch(`${this.current_weather_url_base}weather?q=${this.inputLocation}&units=metric&APPID=${this.current_weather_api_key}`)
+          fetch(`${this.current_weather_url_base}weather?q=${this.inputLocation}&units=imperial&APPID=${this.current_weather_api_key}`)
             .then(res => {
               return res.json();
             }).then(this.setCurrentWeatherResults);
@@ -82,6 +83,7 @@ export default {
         // fetch the forecast weather data
         fetch(`${this.forecast_and_history_weather_url_base}forecast.json?key=${this.forecast_and_history_weather_api_key}&q=${this.current_weather.name}&days=3&aqi=no&alerts=no`)
           .then(res => {
+            this.weatherInFahrenheit = true
             return res.json();
           }).then(this.setForecastWeatherResults);
 
@@ -104,6 +106,33 @@ export default {
       setHistoryWeatherResults (results){
         //assign data to weather
         this.history_weather = results;
+        
+      }, toggleToCelcius () {
+          this.current_weather.main.temp = this.calcTempInCelcius(this.current_weather.main.temp)
+          this.current_weather.main.temp_max = this.calcTempInCelcius(this.current_weather.main.temp_max)
+          this.current_weather.main.temp_min = this.calcTempInCelcius(this.current_weather.main.temp_min)
+          this.weatherInFahrenheit = false
+
+      }, calcTempInCelcius (temp) {
+          return (temp - 32) * (5/9)
+        }, 
+
+        calcTempInFahrenheit(temp) {
+          return (temp * (9/5) ) + 32 
+        }, 
+        
+        toggleToFarenheit () {
+          this.current_weather.main.temp = this.calcTempInFahrenheit(this.current_weather.main.temp)
+          this.current_weather.main.temp_max = this.calcTempInFahrenheit(this.current_weather.main.temp_max)
+          this.current_weather.main.temp_min = this.calcTempInFahrenheit(this.current_weather.main.temp_min)
+          this.weatherInFahrenheit = true
+
+      }, toggleUnits () {
+        if(this.weatherInFahrenheit) {
+          this.toggleToCelcius()
+        } else {
+          this.toggleToFarenheit()
+        }
       }
    }
   
@@ -126,19 +155,32 @@ body{
 main{
   height: 500px;
 }
-.search-box .search-bar{
-  display: block;
-  width: 100%;
+.search-box .search-bar, .unit-toggle{
   padding: 15px;
   font-size: 20px;
 }
-.search-box .search-bar:focus{
-  background-color: rgba(128, 134, 255, 0.75);
+
+.weatherwrap {
+  margin: 50px 0; 
+  text-align: center;
 }
+.search-box {
+  display: flex;
+  width: 100%;
+}
+
+.search-bar {
+  flex-basis: 80%;
+  width: 80%;
+}
+
+.unit-toggle {
+  flex-basis: 20%;
+  width: 20%;
+}
+
 .locationbox .location{
   font-size: 64px;
-  padding-top: 5px;
-  padding-left: 25px;
 }
 .weatherbox .temp{
   font-size: 32px;
