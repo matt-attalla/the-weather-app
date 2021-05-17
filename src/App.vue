@@ -14,7 +14,9 @@
         </div>
         <div class="weatherbox">
           <div class="temp">
-            {{weather.main.temp}} &#8451;
+            <h5> Current temperature:  {{weather.main.temp}} &#8451; </h5>  
+            <h5> Today's max:  {{weather.main.temp_max}} &#8451; </h5> 
+            <h5> Today's min:  {{weather.main.temp_min}} &#8451; </h5> 
           </div>
           <div class="weatherbar">
             {{weather.weather[0].main}}
@@ -26,7 +28,10 @@
   </div>
 </template>
 
+
+
 <script>
+
 // import indexPage from './components/indexPage.vue'
 import weatherTabs from '@/components/weatherTabs.vue'
 export default {
@@ -54,14 +59,18 @@ export default {
            .then(res => {
              return res.json();
            }).then(this.setResults);
+
        }
      },
+
      setResults (results){
        //assign data to weather
        this.weather = results;
+      
      }
    }
 }
+
 </script>
 
 <style>

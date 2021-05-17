@@ -11,7 +11,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+               
                 </tr>
                 <tr>
                     <td>Day #2</td>
@@ -19,7 +19,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+            
                 </tr>
                 <tr>
                     <td>Day #3</td>
@@ -27,7 +27,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+                 
                 </tr>
                 <tr>
                     <td>Day #4</td>
@@ -35,7 +35,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+                   
                 </tr>
                 <tr>
                     <td>Day #5</td>
@@ -43,7 +43,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+                    
                 </tr>
                 <tr>
                     <td>Day #6</td>
@@ -51,14 +51,14 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+                    
                 </tr><tr>
                     <td>Day #7</td>
                     <td>C/F</td>
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+                 
                 </tr>
 
             </table>
@@ -72,7 +72,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+            
                 </tr>
                 <tr>
                     <td>Day #2</td>
@@ -80,7 +80,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+              
                 </tr>
                 <tr>
                     <td>Day #3</td>
@@ -88,7 +88,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+               
                 </tr>
                 <tr>
                     <td>Day #4</td>
@@ -96,7 +96,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+         
                 </tr>
                 <tr>
                     <td>Day #5</td>
@@ -104,7 +104,7 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+              
                 </tr>
                 <tr>
                     <td>Day #6</td>
@@ -112,14 +112,14 @@
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+           
                 </tr><tr>
                     <td>Day #7</td>
                     <td>C/F</td>
                     <td>Icon</td>
                     <td>Humidity</td>
                     <td>Pressure</td>
-                    <td>Min/Max</td>
+               
                 </tr>
 
             </table>
