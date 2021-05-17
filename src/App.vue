@@ -48,7 +48,7 @@ export default {
 
        //theweatherapi api key and url for forecast and history weather
        forecast_and_history_weather_api_key: process.env.VUE_APP_FORECAST_HISTORY_WEATHER_API_KEY,
-       forecast_and_history_weather_url_base: 'http://api.weatherapi.com/v1/',
+       forecast_and_history_weather_url_base: 'https://api.weatherapi.com/v1/',
        //location infor and weather infor
        inputLocation: '',
        current_weather:{},
