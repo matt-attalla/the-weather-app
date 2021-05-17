@@ -6,133 +6,54 @@
         <div v-if="currentTab == 1" class="historytab">
             <table>
                 <tr>
-                    <td>Day #1</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-               
+                    <th>Day</th>
+                    <th>&#8451;/&#8457;</th>
+                    <th></th>
+                    <th>Humidity</th>
+                    <th>Wind (mph/kmh)</th>
+                    <th>Min/Max (&#8451;/&#8457;)</th>
                 </tr>
-                <tr>
-                    <td>Day #2</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-            
+                <tr v-for="weather in history_weather.forecast.forecastday" :key="weather.id">
+                    <td>{{new Date(weather.date).toDateString()}}</td>
+                    <td>{{weather.day.avgtemp_c}}&#176; / {{weather.day.avgtemp_f}}&#176;</td>
+                    <td><img v-bind:src=weather.day.condition.icon /></td>
+                    <td>{{weather.day.avghumidity}}%</td>
+                    <td>{{weather.day.maxwind_mph}} / {{weather.day.maxwind_kph}}</td>
+                    <td>{{weather.day.mintemp_c}}&#176;/{{weather.day.mintemp_f}}&#176; | {{weather.day.maxtemp_c}}&#176;/{{weather.day.maxtemp_f}}&#176;</td>
                 </tr>
-                <tr>
-                    <td>Day #3</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-                 
-                </tr>
-                <tr>
-                    <td>Day #4</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-                   
-                </tr>
-                <tr>
-                    <td>Day #5</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-                    
-                </tr>
-                <tr>
-                    <td>Day #6</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-                    
-                </tr><tr>
-                    <td>Day #7</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-                 
-                </tr>
-
             </table>
+
         </div>
 
         <div v-if="currentTab == 2" class="forecasttab">
             <table>
                 <tr>
-                    <td>Day #1</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-            
+                    <th>Day</th>
+                    <th>&#8451;/&#8457;</th>
+                    <th></th>
+                    <th>Humidity</th>
+                    <th>Wind (mph/kmh)</th>
+                    <th>Min/Max (&#8451;/&#8457;)</th>
                 </tr>
-                <tr>
-                    <td>Day #2</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-              
+                <tr v-for="weather in forecast_weather.forecast.forecastday" :key="weather.id">
+                    <td>{{new Date(weather.date).toDateString()}}</td>
+                    <td>{{weather.day.avgtemp_c}}&#176; / {{weather.day.avgtemp_f}}&#176;</td>
+                    <td><img v-bind:src=weather.day.condition.icon /></td>
+                    <td>{{weather.day.avghumidity}}%</td>
+                    <td>{{weather.day.maxwind_mph}} / {{weather.day.maxwind_kph}}</td>
+                    <td>{{weather.day.mintemp_c}}&#176;/{{weather.day.mintemp_f}}&#176; | {{weather.day.maxtemp_c}}&#176;/{{weather.day.maxtemp_f}}&#176;</td>
                 </tr>
-                <tr>
-                    <td>Day #3</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-               
-                </tr>
-                <tr>
-                    <td>Day #4</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-         
-                </tr>
-                <tr>
-                    <td>Day #5</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-              
-                </tr>
-                <tr>
-                    <td>Day #6</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-           
-                </tr><tr>
-                    <td>Day #7</td>
-                    <td>C/F</td>
-                    <td>Icon</td>
-                    <td>Humidity</td>
-                    <td>Pressure</td>
-               
-                </tr>
-
             </table>
-
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        value: String
-    },
+    // this is where we retrieved the forecast and historical weather data
+    props: [
+        'forecast_weather', 'history_weather'
+    ],
     data: function() {
         return {
             currentTab: 0
