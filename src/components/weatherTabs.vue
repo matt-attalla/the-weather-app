@@ -21,7 +21,6 @@
                     <td>{{weather.day.maxwind_mph}} / {{weather.day.maxwind_kph}}</td>
                     <td>{{weather.day.mintemp_c}}&#176;/{{weather.day.mintemp_f}}&#176; | {{weather.day.maxtemp_c}}&#176;/{{weather.day.maxtemp_f}}&#176;</td>
                 </tr>
-
             </table>
 
         </div>
