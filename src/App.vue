@@ -15,9 +15,9 @@
         <div class="weatherbox">
           <div class="temp">
             {{current_weather.main.temp}} &#8451;
-            <h5> Current temperature:  {{weather.main.temp}} &#8451; </h5>  
-            <h5> Today's max:  {{weather.main.temp_max}} &#8451; </h5> 
-            <h5> Today's min:  {{weather.main.temp_min}} &#8451; </h5> 
+            <h5> Current temperature:  {{current_weather.main.temp}} &#8451; </h5>  
+            <h5> Today's max:  {{current_weather.main.temp_max}} &#8451; </h5> 
+            <h5> Today's min:  {{current_weather.main.temp_min}} &#8451; </h5> 
           </div>
           <div class="weatherbar">
             <img v-bind:src="`http://openweathermap.org/img/wn/${current_weather.weather[0].icon}.png`" />
