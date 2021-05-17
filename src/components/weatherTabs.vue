@@ -76,6 +76,7 @@ export default {
     table {
         border-collapse: collapse;
         width: 100%;
+        overflow-x: auto;
     }
 
     td, th {
@@ -83,5 +84,9 @@ export default {
         border: 1px solid #dddddd;
         text-align: center;
         padding: 4px;
+    }
+
+    .historytab, .forecasttab {
+        overflow: auto;
     }
 </style>
